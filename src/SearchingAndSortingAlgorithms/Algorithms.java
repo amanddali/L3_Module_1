@@ -20,4 +20,44 @@ public class Algorithms {
 		}
 		return tallest;
 	}
+
+	public static String findLongestWord(List<String> words) {
+		int longest = 0;
+		String s = "";
+		for (int i = 0; i < words.size(); i++) {
+			if (words.get(i).length() > longest) {
+				longest = words.get(i).length();
+				s = words.get(i);
+			}
+		}
+		return s;
+	}
+
+	public static boolean containsSOS(List<String> message2) {
+		boolean b = false;
+		String SOS = "... --- ...";
+		for (int i = 0; i < message2.size(); i++) {
+			if (message2.get(i).contains(SOS)) {
+				b = true;
+			}
+		}
+		return b;
+	}
+
+	public static List<Double> sortScores(List<Double> results) {
+		boolean swap = true;
+		while (swap) {
+			swap = false;
+			for (int i = 0; i < results.get(i); i++) {
+				if (results.get(i) > results.get(i + 1)) {
+					double d = results.get(i);
+					results.set(i, results.get(i + 1));
+					results.set(i + 1, d);
+					swap = true;
+				}
+			}
+		}
+		return results;
+	}
+
 }
