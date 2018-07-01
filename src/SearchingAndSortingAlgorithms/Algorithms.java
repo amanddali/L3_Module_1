@@ -1,5 +1,6 @@
 package SearchingAndSortingAlgorithms;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Algorithms {
@@ -48,7 +49,7 @@ public class Algorithms {
 		boolean swap = true;
 		while (swap) {
 			swap = false;
-			for (int i = 0; i < results.get(i); i++) {
+			for (int i = 0; i < results.size() - 1; i++) {
 				if (results.get(i) > results.get(i + 1)) {
 					double d = results.get(i);
 					results.set(i, results.get(i + 1));
@@ -57,7 +58,40 @@ public class Algorithms {
 				}
 			}
 		}
+//		Collections.sort(results);
 		return results;
+	}
+
+	public static List<String> sortDNA(List<String> unsortedSequences) {
+		boolean swap = true;
+		while (swap) {
+			swap = false;
+			for (int i = 0; i < unsortedSequences.size() - 1; i++) {
+				if (unsortedSequences.get(i).length() > unsortedSequences.get(i + 1).length()) {
+					String s = unsortedSequences.get(i);
+					unsortedSequences.set(i, unsortedSequences.get(i + 1));
+					unsortedSequences.set(i + 1, s);
+					swap = true;
+				}
+			}
+		}
+		return unsortedSequences;
+	}
+
+	public static List<String> sortWords(List<String> words) {
+		boolean swap = true;
+		while (swap) {
+			swap = false;
+			for (int i = 0; i < words.size() - 1; i++) {
+				if (words.get(i).compareTo(words.get(i + 1)) == 1) {
+					String s = words.get(i);
+					words.set(i, words.get(i + 1));
+					words.set(i + 1, s);
+					swap = true;
+				}
+			}
+		}
+		return words;
 	}
 
 }
